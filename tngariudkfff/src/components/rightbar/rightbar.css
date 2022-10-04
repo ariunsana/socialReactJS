@@ -63,6 +63,9 @@
   right: 0;
   border: 2px solid white;
 }
+.ightbarUserName{
+  font-weight: 500;
+}
 
 .rightbarTitle{
   font-size: 18px;
