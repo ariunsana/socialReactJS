@@ -5,7 +5,7 @@ import Profile from "./pages/Profile/Profile";
 import Register from "./pages/register/Register";
 // import { Person } from "@mui/icons-material";
 function App() {
-  return <Register/>;
+  return <Home/>;
 }
 
 export default App;
