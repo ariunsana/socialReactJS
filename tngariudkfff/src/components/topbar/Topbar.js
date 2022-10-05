@@ -1,5 +1,5 @@
 import "./topbar.css";
-import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+import { Search, Person, Chat, Notifications } from "@mui/icons-material";
 
 export default function Topbar() {
   return (
@@ -35,7 +35,7 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <img src="/assets/person/1.jpeg" alt="" className="topbarImg"/>
+        <img src="/assets/person/1.jpeg" alt="" className="topbarImg" />
       </div>
     </div>
   );
