@@ -3,40 +3,51 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import "./home.css";
-import { useState , useEffect} from "react";
+import React, { useState , useEffect} from "react";
+import {sendRequest, urlLookup} from "../../settings/settings"
+import { Button, Divider, notification, Space } from 'antd';
+const Context = React.createContext({
+  name: 'Default',
+});
 
 export default function Home() {
 
+ 
   const [datas, setDatas] = useState();
-  const urlLookup = "http://btax.mandakh.org:8000/lookup/";
+  const [api, contextHolder] = notification.useNotification();
+
   useEffect(() => {
     const bodyChiglel = {
-      action: "chiglel",
+      action: "aimagsum",
     };
-    sendRequest(urlLookup, bodyChiglel);
-  }, []);
-
-  const sendRequest = async (url, body) => {
-    await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
+    sendRequest(urlLookup, bodyChiglel).then((data) => setDatas(data));
+  },[]);
+  
+  const openNotification = (desc) => {
+    notification.open({
+      message: 'аймгийн нэр',
+      description:
+      desc,
+      onClick: () => {
+        console.log('notif darsan!');
       },
-      body: JSON.stringify(body),
-    })
-      .then((res) => res.json())
-      .then(async (response) => {
-        setDatas(response);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    });
   };
+
+  const DisplayData = datas && datas.data.map((amg) =>{
+    return (
+      <p key ={amg.aimagdaraalal} >
+        <Button type="dashed" key ={amg.aimagdaraalal} onClick={() => openNotification(amg.aimagname)}>{amg.aimagname}</Button>
+        
+      </p>
+    )
+  });
 
 
   return (
     <>
-    <text>{JSON.stringify(datas)}</text>
+      {DisplayData}
+      {<p> {datas && JSON.stringify(datas)}</p> }
       <Topbar />
       <div className="homeContainer">
         <Sidebar />
