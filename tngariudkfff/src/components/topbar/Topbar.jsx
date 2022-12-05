@@ -35,8 +35,10 @@ export default function Topbar({ilgeesen}) {
           <div className="topbarIconItem">
             <Notifications ilgeesen/>
             <span className="topbarIconBadge">{JSON.stringify(ilgeesen.data.friendrequest)}</span>
-          </div>
+          </div>  
+         
         </div>
+        <span  className="topbarIconBadge">{JSON.stringify(ilgeesen.data.username)}</span>
         <img src="/assets/person/1.jpeg" alt="" className="topbarImg" />
       </div>
     </div>
