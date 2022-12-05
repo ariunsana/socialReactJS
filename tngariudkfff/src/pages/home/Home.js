@@ -3,6 +3,7 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import "./home.css";
+import {hariu} from '../../getdata/dummy';
 import React, { useState , useEffect} from "react";
 import {sendRequest, urlLookup} from "../../settings/settings"
 import { Button, Divider, notification, Space } from 'antd';
@@ -46,9 +47,10 @@ export default function Home() {
 
   return (
     <>
-      {DisplayData}
-      {<p> {datas && JSON.stringify(datas)}</p> }
-      <Topbar />
+      {/* {DisplayData} */}
+      {/* {JSON.stringify (hariu)} */}
+      {/* {<p> {datas && JSON.stringify(datas)}</p> } */}
+      <Topbar ilgeesen = {hariu} />
       <div className="homeContainer">
         <Sidebar />
         <Feed />
