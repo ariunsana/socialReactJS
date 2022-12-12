@@ -38,8 +38,8 @@ export default function Topbar({ilgeesen}) {
           </div>  
          
         </div>
-        <span  className="topbarIconBadge">{JSON.stringify(ilgeesen.data.username)}</span>
-        <img src="/assets/person/1.jpeg" alt="" className="topbarImg" />
+        {/* <span  className="topbarIconBadge">{JSON.stringify(ilgeesen.data.username)}</span> */}
+        <img src={ilgeesen.data.profilephoto} alt="" className="topbarImg" />
       </div>
     </div>
     </>

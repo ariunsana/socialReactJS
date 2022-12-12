@@ -3,7 +3,15 @@ import {RssFeed, Chat,PlayCircleFilledOutlined,Group,Bookmark,HelpOutline,WorkOu
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 // import { Users } from "../../dummyData";
-export default function Sidebar() {
+export default function Sidebar({friends}) {
+  const friendsList = friends.friends.map((items) => {
+    return (
+      <li className="sidebarFriend">
+        <img className="sidebarFriendImg" src={items.friendphoto} alt=""></img>
+        <span className="sidebarFriendName">{items.friendname}</span>
+      </li>
+    );
+  })
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -48,6 +56,7 @@ export default function Sidebar() {
         <button className="sidebarButton">Show More</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
+          {friendsList}
            {Users.map(u =>(
             <CloseFriend key={u.id} user={u}/>
            ))}
